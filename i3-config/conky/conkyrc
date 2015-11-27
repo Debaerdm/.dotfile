@@ -1,0 +1,41 @@
+background no
+own_window_transparent yes
+out_to_x no
+out_to_console yes
+update_interval 1
+total_run_times 0
+use_spacer none
+use_xft yes
+xftalpha 0.8
+total_run_times 0
+own_window yes
+own_window_type normal
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+default_shade_color black
+default_outline_color white
+imlib_cache_size 0
+draw_shades no
+alignment top_right
+gap_x 5
+gap_y 35
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale no
+default_color ECEAE4
+color1 9f907d
+color2 01C400
+
+
+TEXT
+[{"full_text" : "RAM:", "color" : "\#ffb800", "full_text" : "${memperc}%" , "color" : ${if_match ${memperc}<80}"\#005968"${else}"\#ff0000"${endif}},
+{"full_text" : "CPU:", "color" : "\#ffb800"},{"full_text" : "${cpu cpu0}%", "color" : "\#005968"},
+{"full_text" : "Battery:", "color" : "\#ffb800"},{"full_text" : "${battery_percent BAT1}%, ${battery_time BAT1}", "color" : ${if_match ${battery_percent BAT1}>14}"\#005968"${else}"\#ff0000"${endif}},
+{"full_text" : "Vol:", "color" : "\#ffb800"},{"full_text" : "${exec amixer get Master -c 0 -M | grep -oE "[[:digit:]]*%"}" , "color" : "\#005968"},
+  {"full_text" : "Up:", "color" : "\#ffb800"},{"full_text" :  "${upspeed wlp3s0b1}", "color" : "\#005968"},{"full_text" : "Down:", "color" : "\#ffb800"},{"full_text" : " ${downspeed wlp3s0b1}", "color" : "\#005968"},
+  { "full_text" : "${time %a %d.%m.%y  %H:%M}", "color" : "\#005968"}],   
