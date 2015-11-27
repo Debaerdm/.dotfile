@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/home/mathieu'
-let g:netrw_dirhist_2='/home/mathieu/.i3'
-let g:netrw_dirhist_3='/home/mathieu/scripts'
-let g:netrw_dirhist_4='/home/mathieu/Langage C'
