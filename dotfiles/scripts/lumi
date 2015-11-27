@@ -1,0 +1,31 @@
+#!/bin/bash
+
+current=$(xrandr --verbose | grep -i brightness | cut -f2 -d ' ')
+if test "x$1" = "x"; then
+    xrandr --output LVDS1 --brightness 1
+elif test "x$1" = "x-p"; then
+    new=$(echo "scale = 2; $current + 0.05" | bc)
+    if [ $(echo "$new > 1" | bc) -eq 1 ]; then
+        xrandr --output LVDS1 --brightness 1
+    else
+        xrandr --output LVDS1 --brightness $new
+    fi
+elif test "x$1" = "x-m"; then
+    new=$(echo "scale = 2; $current - 0.05" | bc)
+    if [ $(echo "$new < 0" | bc) -eq 1 ]; then
+        xrandr --output LVDS1 --brightness 0
+    else
+        xrandr --output LVDS1 --brightness $new
+    fi
+elif test "$1" -ge 0 && test "$1" -le 100; then
+    xrandr --output LVDS1 --brightness $(echo "scale=2; ($1/100)" | bc)
+elif [[ "x$1" = "x-t" ]]; then
+    echo $current
+    if [[ "$current" = "0.0" ]]; then
+        xrandr --output LVDS1 --brightness 1
+    else
+        xrandr --output LVDS1 --brightness 0
+    fi
+else
+    echo "Erreur de syntaxe"
+fi
