@@ -110,7 +110,7 @@ separator_block_width=6
 [VolIcon]
 full_text=<span font_desc='FontAwesome'> </span>
 color=#a1a1a1
-interval=0
+interval=once
 instance=
 markup=pango
 separator=false
@@ -156,24 +156,49 @@ interval=500
 separator=false
 separator_block_width=6
 
-[cpuicon]
-full_text=<span font_desc='FontAwesome'> </span>
+[brightnessIcon]
+full_text=<span font_desc='FontAwesome'> </span>
 color=#a1a1a1
 interval=once
 markup=pango
 separator=false
 separator_block_width=2
-
-[cpu]
+# 
+[brightness]
 markup=pango
-align=left
-command=echo `cat /sys/devices/platform/coretemp.0/hwmon/hwmon0/device/hwmon/hwmon0/temp1_input | cut -c 1-2` `echo '°C'`
-interval=5
+command=echo $(xbacklight -get) | grep -oE "[[:digit:][:digit:]]*." | tr '.' '%' 
+color=#a1a1a1
+#command=$(printf "%.0f " $(xbacklight -get))
+interval=2
+separator=false
+separator_block_width=6
+#
+[separator]
+color=#444444
+markup=pango
+full_text=<span font='18'>◥</span><span font='13'>████</span><span font='18'>◤</span>
+short_text=<span font='18'>◥</span><span font='13'>████</span><span font='18'>◤</span>
+interval=500
 separator=false
 separator_block_width=6
 
+[WirelessIcon]
+full_text=<span font_desc='FontAwesome'> </span>
+color=#a1a1a1
+interval=once
+markup=pango
+separator=false
+separator_block_width=2
+#141 
+[Wireless]
+command=[[ -z "$(iwgetid -r)" ]] || echo "$(iwgetid -r) "
+interval=10
+separator=false
+separator_block_width=6
+#
+
 [separator]
-color=#444444
+color=#333333
 markup=pango
 full_text=<span font='18'>◥</span><span font='13'>████</span><span font='18'>◤</span>
 short_text=<span font='18'>◥</span><span font='13'>████</span><span font='18'>◤</span>
@@ -192,7 +217,23 @@ separator=false
 markup=pango
 align=left
 command=echo `/usr/libexec/i3blocks/memory`
-interval=5
+interval=10
 separator=false
 separator_block_width=6
 
+[cpuicon]
+full_text=<span font_desc='FontAwesome'> </span>
+color=#a1a1a1
+interval=once
+markup=pango
+separator=false
+separator_block_width=2
+#190 
+[cpu]
+markup=pango
+align=left
+command=echo `cat /sys/devices/platform/coretemp.0/hwmon/hwmon0/device/hwmon/hwmon0/temp1_input | cut -c 1-2` `echo '°C'`
+interval=10
+separator=false
+separator_block_width=6
+#
