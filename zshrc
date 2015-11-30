@@ -9,8 +9,8 @@
 ###############################
 
 ZSH=/usr/share/oh-my-zsh
-#screenfetch -c 7,9 && echo
-archey3
+screenfetch -c 7,9  | lolcat
+#archey3
 
 # Completion
 autoload -U bashcompinit
@@ -119,7 +119,7 @@ alias emacs="vim"
 			 
 
 # Paths
-export PATH=$PATH:/home/cocky/bin/:/sbin/:/usr/sbin/:/usr/local/bin/
+export PATH=$PATH:/home/cocky/bin/:/sbin/:/usr/sbin/:/usr/local/bin/:/home/mathieu/.gem/ruby/2.2.0/bin
 export CLASSPATH=.:$HOME/Postgresql/tomcat8light/tomcat8/lib/postgresql-9.3-1102.jdbc41.jar:$HOME/Postgresql/tomcat8light/tomcat8/lib/servlet-api.jar
 
 #extract
