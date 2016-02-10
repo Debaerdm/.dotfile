@@ -1,0 +1,79 @@
+!urxvt*termName: rxvt
+URxvt.scrollBar: false
+URxvt*font: xft:terminus:size=11:antialiase=true
+URxvt.letterSpace: -1
+URxvt.url-launcher: /usr/bin/firefox
+URxvt.matcher.button: 1
+URxvt.perl-ext-common: default,tabbedex,vtwheel,font-size,resize-font,matcher,clipboard
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
+URxvt.keysym.C-S-Up:   perl:font-size:incglobal
+URxvt.keysym.C-S-Down: perl:font-size:decglobal
+URxvt.tabbed.new-button: false
+URxvt.geometry: 100x40
+URxvt.depth: 32
+URxvt.internalBorder: 5
+urxvt*highlightSelection: true
+urxvt*fading: 50
+urxvt*fadeColor: #252525
+Xcursor.theme: Ecliz-Arch
+
+URxvt.tabbed.tabbar-fg: 2
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg: 2
+URxvt.tabbed.tab-bg: 8
+URxvt.tabbed.autohide:  yes
+URxvt.tabbed.title: no
+
+Xft*dpi: 96
+Xft*antialias: true
+Xft*hinting: full
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcddefault
+urxvt*blurRadius: 7
+
+URxvt.transparent: true
+URxvt.tintColor : #dcdccc
+URxvt.shading: 60 
+
+*foreground: #ededdd
+
+*background: #757575
+!
+urxvt*boldMode:      on
+urxvt*colorMode:     on
+urxvt*colorBDMode:   on
+urxvt*colorULMode:   on
+urxvt*underLine:     on
+ 
+! black
+URxvt*color0  : #2E3436
+URxvt*color8  : #555753
+! red
+URxvt*color1  : #CC0000
+URxvt*color9  : #EF2929
+! green
+URxvt*color2  : #4E9A06
+URxvt*color10 : #8AE234
+! yellow
+URxvt*color3  : #C4A000
+URxvt*color11 : #FCE94F
+! blue
+URxvt*color4  : #3465A4
+URxvt*color12 : #729FCF
+! magenta
+URxvt*color5  : #75507B
+URxvt*color13 : #AD7FA8
+! cyan
+URxvt*color6  : #06989A
+URxvt*color14 : #34E2E2
+!white
+URxvt*color7  : #D3D7CF
+URxvt*color15 : #EEEEEC
+!
+urxvt*colorBD:		#275FA0
+urxvt*colorUL:		#E84C24
+
+URxvt.resize-font.smaller: C-Down
+URxvt.resize-font.bigger: C-Up
+

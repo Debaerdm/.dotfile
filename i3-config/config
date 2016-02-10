@@ -33,10 +33,12 @@ hide_edge_borders both
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite
-bindsym $mod+shift+t exec termite -e ranger
-bindsym $mod+p exec rofi -show run -terminal termite -lines 5 -eh 3 -width 100 -padding 285 -opacity 80 -bw 0 -bc "#555555" -bg "#222222" -hlbg "#222222" -hlfg "#c79595" -fg "#ffffff" -font "Terminus 15"
-
+bindsym $mod+Shift+v exec --no-startup-id urxvtc -geometry 60x24 -name "floating_urxvtc"
+  for_window [class="URxvt" instance="floating_urxvtc$"] floating toggle
+bindsym $mod+Return exec urxvtc
+bindsym $mod+shift+t exec urxvtc -e ranger
+bindsym $mod+p exec rofi -show run -terminal urxvtc -lines 7 -eh 3 -width 100 -padding 200 -opacity 80 -bw 0 -bc "#555555" -bg "#222222" -hlbg "#222222" -hlfg "#c79595" -fg "#ffffff" -font "Terminus 15"
+bindsym XF86PowerOff exec "i3-nagbar -t warning -m 'Do you really want to poweroff ?' -b 'Yes' 'poweroff'"
 
 #bindsy
 bindsym $mod+shift+a exec /home/mathieu/scripts/lock.sh
@@ -107,10 +109,10 @@ bindsym $MOD+SHIFT+plus move scratchpad
 bindsym $MOD+plus scratchpad show
 
 # OPEN TERMINAL HERE (not working yet)
-#bindsym $MOD+n exec $HOME/bin/shell.sh
+bindsym $MOD+n exec /bin/shell.sh
 
 # HANDLE POPUPS
-#popup_during_fullscreen smart
+popup_during_fullscreen smart
 
 # change focus
 bindsym $mod+h focus left
@@ -220,7 +222,7 @@ bindsym Mod4+Control+q mode "Exit >> (L)ogout, (X)eboot, (P)oweroff  (C)Reload (
 
 # take screenshot
 # bindsym Print exec scrot '%Y-%m-%d-%t_$wx$h.png' -e 'mv $ $f ~/images/'
-bindsym Print exec scrot 'Screenshot - %Y-%m-%d--%_$wx$h_scrot.png' -e 'mv $f ~/images/'
+bindsym Print exec scrot 'Screenshot - %Y-%m-%d_$wx$h_scrot.png' -e 'mv $f ~/dotfile-image/'
 
 # colors
 
@@ -252,13 +254,14 @@ bindsym $MOD+SHIFT+m exec --no-startup-id mousepad
 bindsym $MOD+SHIFT+n exec --no-startup-id eclipse
 
 # VOLUME ADJUSTMENT
-bindsym $MOD+SHIFT+Up exec amixer set Master 5.0%+
-bindsym $MOD+SHIFT+Down exec amixer set Master 5.0%-
+bindsym XF86AudioRaiseVolume exec amixer set Master 5.0%+
+bindsym XF86AudioLowerVolume exec amixer set Master 5.0%-
 #bindsym $MOD+SHIFT+Left exec light -U 10
-bindsym $MOD+SHIFT+Left exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec xbacklight -dec 10
 #bindsym $MOD+SHIFT+Right exec  light -A 10
-bindsym $MOD+SHIFT+Right exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -inc 10
 #bindsym $mod+F12 exec --no-startup-id ~/scripts/lumi -t
+bindsym XF86Launch3 exec firefox http://chickenonaraft.com/
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -269,7 +272,7 @@ bar {
 	#status_command i3status
 	status_command i3blocks
 	position top
-	font pango:terminus 9
+	font pango:terminus 8
 	height 14
   colors {
       background #00000066 
@@ -290,4 +293,6 @@ exec --no-startup-id xset dpms 600
 exec --no-startup-id feh --bg-scale /usr/share/pixmaps/wallpaper.png
 exec --no-startup-id xautolock -time 10 -locker /home/mathieu/scripts/lock.sh -secure
 exec --no-startup-id exec compton -cb
+exec --no-startup-id exec urxvtd -q -o -f
+exec --no-startup-id exec nm-applet
 #exec --no-startup-id oneko -sakura -fg white -bg black -tofocus -speed 12
